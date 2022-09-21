@@ -1,38 +1,20 @@
-import * as React from "react"
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import { Box, ChakraProvider, theme } from "@chakra-ui/react";
+import { DownloadImageMap } from "./components/DownloadImageMap/DownloadImageMap";
+import { DrawOnTheMap } from "./components/DrawOnTheMap/DrawOnTheMap";
+import { GeoLocationMap } from "./components/GeolocationMap/GeoLocationMap";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-)
+export const App = () => {
+  const maps = {
+    0: <GeoLocationMap />,
+    1: <DownloadImageMap />,
+    2: <DrawOnTheMap />,
+  };
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Box h="100vh" w="100vw" bg="gray.100">
+        {maps[0]}
+      </Box>
+    </ChakraProvider>
+  );
+};
