@@ -1,0 +1,11 @@
+.ol-control {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.ol-full-screen {
+    top: .5em;
+    right: .5em;
+}
